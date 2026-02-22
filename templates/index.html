@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant Billing System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>🍽 Restaurant Billing System</h1>
+
+    <div class="bill-controls">
+      <button onclick="createBill('Dine-In')">➕ Dine-In</button>
+      <button onclick="createBill('Takeaway')">➕ Takeaway</button>
+    </div>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="layout">
+
+    <!-- LEFT: CATEGORY PANEL -->
+    <div class="categories">
+      <h3>Categories</h3>
+      <div id="categoryList"></div>
+    </div>
+
+    <!-- CENTER: MENU + ACTIVE BILL -->
+    <div class="menu-area">
+
+      <!-- SEARCH -->
+      <div class="search-bar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search item..."
+          onkeyup="searchMenu()"
+        />
+      </div>
+
+      <!-- MENU ITEMS -->
+      <div id="menu" class="menu-grid"></div>
+
+      <!-- ACTIVE BILL -->
+      <div class="bill">
+        <h2 id="activeBill">No Active Bill</h2>
+
+        <div id="billItems" class="bill-items"></div>
+
+        <div class="bill-summary">
+          <h3>Total: ₹<span id="total">0</span></h3>
+          <button class="close-btn" onclick="printBill()">Close Bill</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+<div class="running-bills">
+  <h3>Running Bills</h3>
+
+  <input
+    type="text"
+    id="billSearch"
+    placeholder="Search Bill ID..."
+    onkeyup="searchBills()"
+    class="bill-search"
+  >
+
+  <div id="runningBills"></div>
+
+  <hr style="margin:15px 0;">
+
+  <h3>Paid Bills</h3>
+  <div id="paidBills"></div>
+</div>
+
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
